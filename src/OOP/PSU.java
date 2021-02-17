@@ -8,7 +8,8 @@ import java.util.List;
 public class PSU extends Motherboard  {
 
 
-
+    public PSU() {
+    }
 
     public PSU(int id, String producer, String model, String serialNumber, ConnectionType connectionType) {
         super(id, producer, model, serialNumber, connectionType);
@@ -65,4 +66,6 @@ public class PSU extends Motherboard  {
                 ", producer='" + producer + '\'' +
                 ", model='" + model + '\'';
     }
+
+
 }

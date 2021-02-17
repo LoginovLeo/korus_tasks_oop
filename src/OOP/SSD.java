@@ -1,8 +1,8 @@
 package OOP;
 
-public class SDD extends Motherboard{
+public class SSD extends Motherboard{
 
-    public SDD(int id, String producer, String model, String serialNumber, ConnectionType connectionType) {
+    public SSD(int id, String producer, String model, String serialNumber, ConnectionType connectionType) {
         super(id, producer, model, serialNumber, connectionType);
 
     }
