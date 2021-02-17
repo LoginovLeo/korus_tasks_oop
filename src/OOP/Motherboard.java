@@ -1,5 +1,7 @@
 package OOP;
 
+import java.util.List;
+
 public class Motherboard  {
     int id;
     String producer;
@@ -25,6 +27,16 @@ public class Motherboard  {
         this.producer = producer;
         this.serialNumber = serialNumber;
         this.connectionType = connectionType;
+    }
+
+    public  <T> void deleteComponent(List<Motherboard> listOfComponents, T component){
+        listOfComponents.removeIf(e -> e.getClass().equals(component.getClass()));
+        listOfComponents.forEach(System.out::println);
+    }
+
+    public  void addComponent(List<Motherboard> listOfComponents, Motherboard component){
+        listOfComponents.add( component);
+        listOfComponents.forEach(System.out::println);
     }
 
     @Override
