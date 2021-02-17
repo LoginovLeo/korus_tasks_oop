@@ -23,7 +23,7 @@ public class PC {
         pc.add(new SDD(23, "Samsung", "SSD256", "21518", ConnectionType.PCI_E));
         pc.add(new HDD(9, "Kingston", "HDD256", "8782AS-256", ConnectionType.SATA));
         pc.forEach(System.out::println);
-        motherboard.deleteComponent(pc,psu);
+        motherboard.deleteComponent(pc,"asd5f5");
         motherboard.addComponent(pc, new PSU(3, "Power Supply", " VA-PSU-US1", "564665sfa", ConnectionType.POWER));
 
 

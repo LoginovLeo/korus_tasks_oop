@@ -33,8 +33,8 @@ public class Motherboard  {
         this.connectionType = connectionType;
     }
 
-    public   void deleteComponent(List<Motherboard> listOfComponents, Motherboard component){
-        listOfComponents.removeIf(e -> e.getSerialNumber().equals(component.getSerialNumber()));
+    public   void deleteComponent(List<Motherboard> listOfComponents, String component){
+        listOfComponents.removeIf(e -> e.getSerialNumber().equals(component));
         listOfComponents.forEach(System.out::println);
 
     }
