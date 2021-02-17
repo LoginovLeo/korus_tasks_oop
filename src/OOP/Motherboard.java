@@ -21,6 +21,10 @@ public class Motherboard  {
         return model;
     }
 
+    public String getSerialNumber() {
+        return serialNumber;
+    }
+
     public Motherboard(int id, String producer, String model, String serialNumber, ConnectionType connectionType) {
         this.id = id;
         this.model = model;
@@ -29,14 +33,16 @@ public class Motherboard  {
         this.connectionType = connectionType;
     }
 
-    public  <T> void deleteComponent(List<Motherboard> listOfComponents, T component){
-        listOfComponents.removeIf(e -> e.getClass().equals(component.getClass()));
+    public   void deleteComponent(List<Motherboard> listOfComponents, Motherboard component){
+        listOfComponents.removeIf(e -> e.getSerialNumber().equals(component.getSerialNumber()));
         listOfComponents.forEach(System.out::println);
+
     }
 
     public  void addComponent(List<Motherboard> listOfComponents, Motherboard component){
         listOfComponents.add( component);
         listOfComponents.forEach(System.out::println);
+
     }
 
     @Override
