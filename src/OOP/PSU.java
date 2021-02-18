@@ -40,8 +40,8 @@ public class PSU extends Motherboard  {
 
 
 
-        for(int i = a.size()-1 ; i > 4 ; i--){
-            for(int j = 4 ; j < i ; j++){
+        for(int i = a.size()-1 ; i > 3 ; i--){
+            for(int j = 3 ; j < i ; j++){
 
             if( a.get(j).getId() > a.get(j+1).getId()){
                 Motherboard motherboardTemp = a.get(j);
