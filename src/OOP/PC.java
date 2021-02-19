@@ -7,16 +7,16 @@ import java.util.List;
 import java.util.Objects;
 
 public class PC {
-
-    public PC() {
-    }
-
     RAM ram;
     CPU cpu;
     Motherboard motherboard;
     PSU psu;
     SSD ssd;
     HDD hdd;
+
+
+    public PC() {
+    }
 
 
     public PC(RAM ram, CPU cpu, Motherboard motherboard, PSU psu, SSD ssd, HDD hdd) {
@@ -28,7 +28,9 @@ public class PC {
         this.hdd = hdd;
     }
 
-    public void getPCInformation(PC pc){
+
+
+    public void discover(PC pc){
         /*Class<Motherboard> motherboardClass = Motherboard.class;
         Field[] declaredFields = motherboardClass.getDeclaredFields();
         for (Field field: declaredFields){
