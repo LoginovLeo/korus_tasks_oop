@@ -19,8 +19,6 @@ public class Motherboard {
     ConnectionType connectionType;
 
 
-
-
     public Motherboard() {
 
     }
