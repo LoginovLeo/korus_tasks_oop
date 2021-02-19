@@ -151,7 +151,7 @@ public class Motherboard {
                 System.out.println("Add component " +
                         " Producer: " + component.producer +
                         ", model: " + component.model +
-                        ", serial number: " + component.getSerialNumber());
+                        ", serial number: " + component.serialNumber);
             }
 
         } catch (Exception e) {
@@ -172,7 +172,7 @@ public class Motherboard {
                 System.out.println("Add component " +
                         " Producer: " + component.producer +
                         ", model: " + component.model +
-                        ", serial number: " + component.getSerialNumber());
+                        ", serial number: " + component.serialNumber);
             }
 
         } catch (Exception e) {
@@ -193,7 +193,7 @@ public class Motherboard {
                 System.out.println("Add component " +
                         " Producer: " + component.producer +
                         ", model: " + component.model +
-                        ", serial number: " + component.getSerialNumber());
+                        ", serial number: " + component.serialNumber);
             }
 
         } catch (Exception e) {
@@ -214,7 +214,7 @@ public class Motherboard {
                 System.out.println("Add component " +
                         " Producer: " + component.producer +
                         ", model: " + component.model +
-                        ", serial number: " + component.getSerialNumber());
+                        ", serial number: " + component.serialNumber);
             }
 
         } catch (Exception e) {
@@ -235,7 +235,7 @@ public class Motherboard {
                 System.out.println("Add component " +
                         " Producer: " + component.producer +
                         ", model: " + component.model +
-                        ", serial number: " + component.getSerialNumber());
+                        ", serial number: " + component.serialNumber);
             }
 
         } catch (Exception e) {
