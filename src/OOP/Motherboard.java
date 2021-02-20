@@ -108,9 +108,43 @@ public class Motherboard {
         return connectionsOfMotherboard;
     }
 
-    public void deleteComponent(List<Motherboard> listOfComponents, Motherboard component) {
+    public void deleteComponent(List<Motherboard> listOfComponents, Motherboard component, Map<ConnectionType, Integer> mapOfMotherboard) {
+        Integer powerConnections ;
+        Integer pciEConnections ;
+        Integer ddrConnections ;
+        Integer sataConnections ;
+        Integer socketConnections ;
+        if (listOfComponents.contains(component)) {
+            listOfComponents.remove(component);
+            System.out.println("Delete component " +
+                    " Producer: " + component.producer +
+                    ", model: " + component.model +
+                    ", serial number: " + component.getSerialNumber());
+            if (component.connectionType.equals(ConnectionType.POWER)) {
+                powerConnections = mapOfMotherboard.get(ConnectionType.POWER);
+                powerConnections++;
+                System.out.println(powerConnections);
+                mapOfMotherboard.replace(ConnectionType.POWER, powerConnections);
+            } else if (component.connectionType.equals(ConnectionType.PCI_E)) {
+                pciEConnections = mapOfMotherboard.get(ConnectionType.PCI_E);
+                pciEConnections++;
+                mapOfMotherboard.replace(ConnectionType.POWER, pciEConnections);
+            } else if (component.connectionType.equals(ConnectionType.DDR4)) {
+                ddrConnections = mapOfMotherboard.get(ConnectionType.DDR4);
+                ddrConnections++;
+                mapOfMotherboard.replace(ConnectionType.DDR4, ddrConnections);
+            } else if (component.connectionType.equals(ConnectionType.SATA)) {
+                sataConnections = mapOfMotherboard.get(ConnectionType.SATA);
+                sataConnections++;
+                mapOfMotherboard.replace(ConnectionType.SATA, sataConnections);
+            } else if (component.connectionType.equals(ConnectionType.Socket1155)) {
+                socketConnections = mapOfMotherboard.get(ConnectionType.Socket1155);
+                socketConnections++;
+                mapOfMotherboard.replace(ConnectionType.Socket1155, socketConnections);
+            }
 
-        listOfComponents.removeIf(e -> e.getSerialNumber().equals(component.getSerialNumber()));
+        } else System.out.println("This element doesn't connected to motherboard");
+        /*listOfComponents.removeIf(e -> e.getSerialNumber().equals(component.getSerialNumber()));
         System.out.println("Delete component " +
                 " Producer: " + component.producer +
                 ", model: " + component.model +
@@ -126,7 +160,7 @@ public class Motherboard {
             sata++;
         } else if (component.getConnectionType().equals(ConnectionType.Socket1155)) {
             socket++;
-        }
+        }*/
     }
 
     public void addComponent(List<Motherboard> listOfComponents, Motherboard component, Map<ConnectionType, Integer> mapOfMotherboard) {

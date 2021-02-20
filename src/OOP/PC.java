@@ -13,7 +13,13 @@ public class PC {
     PSU psu;
     SSD ssd;
     HDD hdd;
+    List<PC> pc;
+    String nameOfAssembly;
 
+    public PC(List<PC> pc, String nameOfAssembly) {
+        this.pc = pc;
+        this.nameOfAssembly = nameOfAssembly;
+    }
 
     public PC() {
     }
