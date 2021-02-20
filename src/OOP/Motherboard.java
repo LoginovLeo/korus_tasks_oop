@@ -109,11 +109,11 @@ public class Motherboard {
     }
 
     public void deleteComponent(List<Motherboard> listOfComponents, Motherboard component, Map<ConnectionType, Integer> mapOfMotherboard) {
-        Integer powerConnections ;
-        Integer pciEConnections ;
-        Integer ddrConnections ;
-        Integer sataConnections ;
-        Integer socketConnections ;
+        Integer powerConnections;
+        Integer pciEConnections;
+        Integer ddrConnections;
+        Integer sataConnections;
+        Integer socketConnections;
         if (listOfComponents.contains(component)) {
             listOfComponents.remove(component);
             System.out.println("Delete component " +
@@ -144,23 +144,7 @@ public class Motherboard {
             }
 
         } else System.out.println("This element doesn't connected to motherboard");
-        /*listOfComponents.removeIf(e -> e.getSerialNumber().equals(component.getSerialNumber()));
-        System.out.println("Delete component " +
-                " Producer: " + component.producer +
-                ", model: " + component.model +
-                ", serial number: " + component.getSerialNumber());
 
-        if (component.getConnectionType().equals(ConnectionType.PCI_E)) {
-            pciE++;
-        } else if (component.getConnectionType().equals(ConnectionType.POWER)) {
-            power++;
-        } else if (component.getConnectionType().equals(ConnectionType.DDR4)) {
-            ddr4++;
-        } else if (component.getConnectionType().equals(ConnectionType.SATA)) {
-            sata++;
-        } else if (component.getConnectionType().equals(ConnectionType.Socket1155)) {
-            socket++;
-        }*/
     }
 
     public void addComponent(List<Motherboard> listOfComponents, Motherboard component, Map<ConnectionType, Integer> mapOfMotherboard) {
@@ -169,6 +153,10 @@ public class Motherboard {
         Integer ddrConnections = 0;
         Integer sataConnections = 0;
         Integer socketConnections = 0;
+
+        if (!component.connectionType.equals(mapOfMotherboard.get(connectionType))) {
+            System.out.println("There are no connections with this type: " + component.connectionType);
+        }
         try {
             if (component.connectionType.equals(ConnectionType.POWER)) {
                 powerConnections = mapOfMotherboard.get(ConnectionType.POWER);
@@ -274,8 +262,10 @@ public class Motherboard {
             System.out.println("All connectors of Socket1155 completed. Impossible to add component ");
         }
 
-
     }
+
+
+
 
     @Override
     public String toString() {

@@ -49,7 +49,7 @@ public class PCMain {
 
 
 
-        motherboard.addComponent(componentsOfFirstPC, new SSD(7, "Samsung", "SSD512", "asd5f5", ConnectionType.POWER), mapOfMotherboard);
+        motherboard.addComponent(componentsOfFirstPC, new SSD(7, "Samsung", "SSD512", "asd5f5", ConnectionType.DIMM), mapOfMotherboard);
         motherboard.addComponent(componentsOfFirstPC, new SSD(8, "Samsung", "SSD512", "asd455f5", ConnectionType.POWER), mapOfMotherboard);
         motherboard.deleteComponent(componentsOfFirstPC, psu1,mapOfMotherboard);
         //motherboard.addComponent(componentsOfFirstPC, new SSD(9, "Samsung", "SSD512", "asd455f5", ConnectionType.POWER), mapOfMotherboard);
