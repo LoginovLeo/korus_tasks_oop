@@ -160,7 +160,7 @@ public class Motherboard {
         try {
             if (component.connectionType.equals(ConnectionType.POWER)) {
                 powerConnections = mapOfMotherboard.get(ConnectionType.POWER);
-                powerConnections--;
+                powerConnections++;
                 mapOfMotherboard.replace(ConnectionType.POWER, powerConnections);
             }
             if (powerConnections < 0) {
