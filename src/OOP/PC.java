@@ -1,6 +1,8 @@
 package OOP;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,19 +15,27 @@ public class PC {
     PSU psu;
     SSD ssd;
     HDD hdd;
-    List<PC> pc;
+    List<Motherboard> pc;
     String nameOfAssembly;
 
-    public PC(List<PC> pc, String nameOfAssembly) {
+
+
+    public PC(List<Motherboard> pc, String nameOfAssembly) {
         this.pc = pc;
+
         this.nameOfAssembly = nameOfAssembly;
     }
 
     public PC() {
+
+
     }
 
+    public PC(RAM ram) {
+        this.ram = ram;
+    }
 
-    public PC(RAM ram, CPU cpu, Motherboard motherboard, PSU psu, SSD ssd, HDD hdd) {
+      public PC(RAM ram, CPU cpu, Motherboard motherboard, PSU psu, SSD ssd, HDD hdd) {
         this.ram = ram;
         this.cpu = cpu;
         this.motherboard = motherboard;
@@ -36,26 +46,34 @@ public class PC {
 
 
 
-    public void discover(PC pc){
-        /*Class<Motherboard> motherboardClass = Motherboard.class;
-        Field[] declaredFields = motherboardClass.getDeclaredFields();
-        for (Field field: declaredFields){
-            System.out.println(field);
-        }*/
-
-        System.out.println("Information about PC: \n" +
-                "Motherboard producer: " + motherboard.getProducer() +
-                ", model: " + motherboard.getModel() +
-                ", serial number:" + motherboard.getSerialNumber() +
-                ", connection type: " + motherboard.getConnectionType());
-
-        System.out.println("CPU producer : " + cpu.getProducer() +
-                ", model: " + cpu.getModel() +
-                ", serial number:" + cpu.getSerialNumber() +
-                ", connection type: " + cpu.getConnectionType());
+    public void discover(PC pc) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
 
 
+        Class<?> elem = ram.getClass();
+        Method toString;
+        toString = elem.getMethod("toString");
+        System.out.println(toString.invoke(ram));
 
 
     }
+
+    public void discover1(PC pc) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, NoSuchFieldException {
+
+        Field[] elem = pc.motherboard.getClass().getDeclaredFields();
+        for (Field field : elem) {
+            String name =  field.getName();
+            Field ff = pc.motherboard.getClass().getDeclaredField(name);
+            ff.setAccessible(true);
+            System.out.println(ff.get(motherboard));
+
+        }
+
+        Field field = pc.ram.getClass().getDeclaredField("serialNumber");
+        field.setAccessible(true);
+        Object a = field.get(ram);
+        System.out.println(a);
+
+
+    }
+
 }

@@ -8,14 +8,14 @@ import java.util.Map;
 
 public class Motherboard {
     int id;
-    int power;
-    int pciE;
-    int ddr4;
+    private int power;
+    private int pciE;
+     int ddr4;
     int sata;
     int socket;
     String producer;
     String model;
-    String serialNumber;
+    private String serialNumber;
     ConnectionType connectionType;
 
 
@@ -48,9 +48,9 @@ public class Motherboard {
         return model;
     }
 
-    public String getSerialNumber() {
+    /*public String getSerialNumber() {
         return serialNumber;
-    }
+    }*/
 
     public Motherboard(int id, String producer, String model, String serialNumber, ConnectionType connectionType, int power, int pciE, int ddr4, int sata, int socket) {
 
@@ -115,42 +115,40 @@ public class Motherboard {
         Integer sataConnections;
         Integer socketConnections;
 
-           for (Motherboard listOfComponent : listOfComponents) {
-                if (listOfComponent.serialNumber.equals(serialNumber)) {
+        for (Motherboard listOfComponent : listOfComponents) {
+            if (listOfComponent.serialNumber.equals(serialNumber)) {
 
-                    if (listOfComponent.connectionType.equals(ConnectionType.POWER)) {
-                        powerConnections = mapOfMotherboard.get(ConnectionType.POWER);
-                        powerConnections++;
-                        mapOfMotherboard.replace(ConnectionType.POWER, powerConnections);
-                    } else if (listOfComponent.connectionType.equals(ConnectionType.PCI_E)) {
-                        pciEConnections = mapOfMotherboard.get(ConnectionType.PCI_E);
-                        pciEConnections++;
-                        mapOfMotherboard.replace(ConnectionType.POWER, pciEConnections);
-                    } else if (listOfComponent.connectionType.equals(ConnectionType.DDR4)) {
-                        ddrConnections = mapOfMotherboard.get(ConnectionType.DDR4);
-                        ddrConnections++;
-                        mapOfMotherboard.replace(ConnectionType.DDR4, ddrConnections);
-                    } else if (listOfComponent.connectionType.equals(ConnectionType.SATA)) {
-                        sataConnections = mapOfMotherboard.get(ConnectionType.SATA);
-                        sataConnections++;
-                        mapOfMotherboard.replace(ConnectionType.SATA, sataConnections);
-                    } else if (listOfComponent.connectionType.equals(ConnectionType.Socket1155)) {
-                        socketConnections = mapOfMotherboard.get(ConnectionType.Socket1155);
-                        socketConnections++;
-                        mapOfMotherboard.replace(ConnectionType.Socket1155, socketConnections);
-
-                    }
-
+                if (listOfComponent.connectionType.equals(ConnectionType.POWER)) {
+                    powerConnections = mapOfMotherboard.get(ConnectionType.POWER);
+                    powerConnections++;
+                    mapOfMotherboard.replace(ConnectionType.POWER, powerConnections);
+                } else if (listOfComponent.connectionType.equals(ConnectionType.PCI_E)) {
+                    pciEConnections = mapOfMotherboard.get(ConnectionType.PCI_E);
+                    pciEConnections++;
+                    mapOfMotherboard.replace(ConnectionType.POWER, pciEConnections);
+                } else if (listOfComponent.connectionType.equals(ConnectionType.DDR4)) {
+                    ddrConnections = mapOfMotherboard.get(ConnectionType.DDR4);
+                    ddrConnections++;
+                    mapOfMotherboard.replace(ConnectionType.DDR4, ddrConnections);
+                } else if (listOfComponent.connectionType.equals(ConnectionType.SATA)) {
+                    sataConnections = mapOfMotherboard.get(ConnectionType.SATA);
+                    sataConnections++;
+                    mapOfMotherboard.replace(ConnectionType.SATA, sataConnections);
+                } else if (listOfComponent.connectionType.equals(ConnectionType.Socket1155)) {
+                    socketConnections = mapOfMotherboard.get(ConnectionType.Socket1155);
+                    socketConnections++;
+                    mapOfMotherboard.replace(ConnectionType.Socket1155, socketConnections);
 
                 }
 
 
-            } if (listOfComponents.removeIf(e -> e.serialNumber.equals(serialNumber))){
-            System.out.println("Component with serial number " + serialNumber + " deleted" );
-        }  else System.out.println("Motherboard doesn't contain this component");
+            }
 
 
-
+        }
+        if (listOfComponents.removeIf(e -> e.serialNumber.equals(serialNumber))) {
+            System.out.println("Component with serial number " + serialNumber + " deleted");
+        } else System.out.println("Motherboard doesn't contain this component");
 
 
     }

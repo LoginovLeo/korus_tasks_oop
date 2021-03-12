@@ -1,20 +1,22 @@
 package OOP;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 
 public class PCMain {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, NoSuchFieldException {
 
         List<Motherboard> componentsOfFirstPC = new ArrayList<>();
         List<Motherboard> componentsOfSecondPC = new ArrayList<>();
 
 
-        List<PC> firstPc = new ArrayList<>();
+        List<PC> groupOfPC = new ArrayList<>();
 
         Motherboard motherboard = new Motherboard(4, "Asus", "ROG STRIX B550-XE GAMING", "45318551134-662aA4D45", ConnectionType.POWER, 4, 2, 4, 2, 1);
         PSU psu = new PSU(3, "Power Supply", " VA-PSU-US1", "564665sfa", ConnectionType.POWER);
@@ -48,35 +50,27 @@ public class PCMain {
         Map<ConnectionType, Integer> mapOfMotherboard = motherboard.createMap(motherboard, componentsOfFirstPC);
 
 
-
-        motherboard.addComponent(componentsOfFirstPC, new SSD(7, "Samsung", "SSD512", "asd5f5", ConnectionType.DIMM), mapOfMotherboard);
+        /*motherboard.addComponent(componentsOfFirstPC, new SSD(7, "Samsung", "SSD512", "asd5f5", ConnectionType.DIMM), mapOfMotherboard);
         motherboard.addComponent(componentsOfFirstPC, new SSD(8, "Samsung", "SSD512", "asd455f5", ConnectionType.POWER), mapOfMotherboard);
-        motherboard.deleteComponent(componentsOfFirstPC, "805353-B21",mapOfMotherboard);
-        //motherboard.addComponent(componentsOfFirstPC, new SSD(9, "Samsung", "SSD512", "asd455f5", ConnectionType.POWER), mapOfMotherboard);
+        motherboard.deleteComponent(componentsOfFirstPC, "564665sfad", mapOfMotherboard);
+        //motherboard.addComponent(componentsOfFirstPC, new SSD(9, "Samsung", "SSD512", "asd455f5", ConnectionType.POWER), mapOfMotherboard);*/
+
+
+        PC computer1 = new PC(componentsOfFirstPC, "MyFirstPC");
+        PC computer2 = new PC(ram,cpu,motherboard,psu,ssd,hdd);
+
+        groupOfPC.add(computer1);
+        //groupOfPC.add(computer2);
+
+        //computer1.discover(computer1);
+
+        PC comp3 = new PC(ram);
+        computer2.discover1(computer2);
+
+       // comp3.discover(comp3);
 
 
 
-
-        //motherboard.addComponent(components,motherboard);
-
-        //motherboard.addComponent(componentsOfFirstPC,new PSU());
-        //motherboard.addComponent(components,psu);
-        //motherboard.addComponent(components,ram);
-        //motherboard.addComponent(components,ssd);
-
-
-        //PC computer1 = new PC(ram,cpu,motherboard,psu,ssd,hdd);
-
-        //computer1.getPCInformation(computer1);
-
-
-        componentsOfFirstPC.forEach(System.out::println);
-        System.out.println(" ");
-        // psu.powerOn(pc);
-        //motherboard.deleteComponent(components, components.get(1));
-        //motherboard.addComponent(components, new PSU(33, "Power Supply", " VA-PSU-US1", "564665sfa", ConnectionType.POWER));
-        //System.out.println(" ");
-        //psu.powerOn(components);
 
 
     }
