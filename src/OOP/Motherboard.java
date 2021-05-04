@@ -277,7 +277,7 @@ public class Motherboard extends PC{
         String simpleName = getClass().getSimpleName();
         return "Component " + simpleName + " connected : " +
                 "id=" + id +
-                ", producer='" + producer + '\'' +
-                ", model='" + model + '\'';
+                ", producer= " + producer +
+                ", model= " + model ;
     }
 }
