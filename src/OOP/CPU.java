@@ -7,14 +7,5 @@ public class CPU extends Motherboard{
 
     }
 
-    public int getId() {
-        return id;
-    }
-    @Override
-    public String toString() {
-        return "CPU connected : " +
-                "id=" + id +
-                ", producer='" + producer + '\'' +
-                ", model='" + model + '\'' ;
-    }
+
 }

@@ -11,16 +11,16 @@ public class PSU extends Motherboard  {
     public PSU() {
     }
 
+
     public PSU(int id, String producer, String model, String serialNumber, ConnectionType connectionType) {
         super(id, producer, model, serialNumber, connectionType);
 
 
     }
 
-
     public void powerOn(List<Motherboard> a) {
 
-
+        
         System.out.println("Power ON ");
         for (int i = 0; i < a.size(); i++) {
              if (a.get(i).getClass().equals(PSU.class)) {
@@ -59,13 +59,7 @@ public class PSU extends Motherboard  {
     }
 
 
-    @Override
-    public String toString() {
-        return "PSU connected : " +
-                "id=" + id +
-                ", producer='" + producer + '\'' +
-                ", model='" + model + '\'';
-    }
+
 
 
 }

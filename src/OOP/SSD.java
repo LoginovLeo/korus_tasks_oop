@@ -7,11 +7,5 @@ public class SSD extends Motherboard{
 
     }
 
-    @Override
-    public String toString() {
-        return "SDD connected : " +
-                "id=" + id +
-                ", producer='" + producer + '\'' +
-                ", model='" + model + '\'' ;
-    }
+
 }

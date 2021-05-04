@@ -47,6 +47,8 @@ public class PCMain {
         componentsOfSecondPC.add(cpu1);
         componentsOfSecondPC.add(ssd1);
 
+        psu.powerOn(componentsOfFirstPC);
+
         Map<ConnectionType, Integer> mapOfMotherboard = motherboard.createMap(motherboard, componentsOfFirstPC);
 
 
@@ -60,14 +62,7 @@ public class PCMain {
         PC computer2 = new PC(ram,cpu,motherboard,psu,ssd,hdd);
 
         groupOfPC.add(computer1);
-        //groupOfPC.add(computer2);
 
-        //computer1.discover(computer1);
-
-        PC comp3 = new PC(ram);
-        computer2.discover1(computer2);
-
-       // comp3.discover(comp3);
 
 
 

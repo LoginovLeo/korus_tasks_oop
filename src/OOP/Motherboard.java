@@ -1,22 +1,21 @@
 package OOP;
 
-import jdk.jfr.StackTrace;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Motherboard {
-    int id;
+public class Motherboard extends PC{
+    private int id;
     private int power;
     private int pciE;
-     int ddr4;
-    int sata;
-    int socket;
-    String producer;
-    String model;
+    private int ddr4;
+    private int sata;
+    private int socket;
+    private String producer;
+    private String model;
     private String serialNumber;
-    ConnectionType connectionType;
+    private ConnectionType connectionType;
 
 
     public Motherboard() {
@@ -48,9 +47,6 @@ public class Motherboard {
         return model;
     }
 
-    /*public String getSerialNumber() {
-        return serialNumber;
-    }*/
 
     public Motherboard(int id, String producer, String model, String serialNumber, ConnectionType connectionType, int power, int pciE, int ddr4, int sata, int socket) {
 
@@ -278,7 +274,8 @@ public class Motherboard {
 
     @Override
     public String toString() {
-        return "Motherboard connected : " +
+        String simpleName = getClass().getSimpleName();
+        return "Component " + simpleName + " connected : " +
                 "id=" + id +
                 ", producer='" + producer + '\'' +
                 ", model='" + model + '\'';

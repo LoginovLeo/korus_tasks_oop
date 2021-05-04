@@ -10,21 +10,5 @@ public class RAM extends Motherboard {
         this.serialNumber = serialNumber;
 
     }
-    private String toString1() {
-        return "RAM connected : " +
-                "id=" + id +
-                ", producer='" + producer + '\'' +
-                ", model='" + model + '\'' +
-                ", serial='" + serialNumber + '\''+
-                ", connection='" + connectionType + '\'';
-    }
 
-    @Override
-    public String toString() {
-        return "RAM connected : " +
-                "id=" + id +
-                ", producer='" + producer + '\'' +
-                ", model='" + model + '\'' +
-                ", serial='" + serialNumber + '\'';
-    }
 }

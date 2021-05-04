@@ -9,14 +9,14 @@ import java.util.List;
 import java.util.Objects;
 
 public class PC {
-    RAM ram;
-    CPU cpu;
-    Motherboard motherboard;
-    PSU psu;
-    SSD ssd;
-    HDD hdd;
-    List<Motherboard> pc;
-    String nameOfAssembly;
+    private RAM ram;
+    private CPU cpu;
+    private Motherboard motherboard;
+    private PSU psu;
+    private SSD ssd;
+    private HDD hdd;
+    private List<Motherboard> pc;
+    private String nameOfAssembly;
 
 
 
@@ -59,14 +59,6 @@ public class PC {
 
     public void discover1(PC pc) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, NoSuchFieldException {
 
-        Field[] elem = pc.motherboard.getClass().getDeclaredFields();
-        for (Field field : elem) {
-            String name =  field.getName();
-            Field ff = pc.motherboard.getClass().getDeclaredField(name);
-            ff.setAccessible(true);
-            System.out.println(ff.get(motherboard));
-
-        }
 
         Field field = pc.ram.getClass().getDeclaredField("serialNumber");
         field.setAccessible(true);
